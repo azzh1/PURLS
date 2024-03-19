@@ -3,11 +3,11 @@
 ## Introduction
 This repository is prepared to provide the code resource for the paper:
 
+**Part-aware Unified Representation of Language and Skeleton for Zero-shot Action Recognition** Anqi Zhu, Qiuhong Ke, Mingming Gong, James Bailey.
+
 <div align="center">
     <img src="imgs/model_arc.png">
 </div>
-
-**Part-aware Unified Representation of Language and Skeleton for Zero-shot Action Recognition** Anqi Zhu, Qiuhong Ke, Mingming Gong, James Bailey. 
 
 ## TODOs:
 * docs for
@@ -141,6 +141,28 @@ The expected **Top-1** **accuracy** of provided models are shown here:
 [1] Kim, T. S., and Reiter, A. 2017. Interpretable 3d human action analysis with temporal convolutional networks. In BNMW CVPRW. -->
 
 ## Training
+[main.py]() also supports training a new model with customized configs. The script accepts the following parameters:
+
+| Argument | Possible Values | Description |
+--- | --- | --- | 
+ntu | 60; 120 | Which NTU dataset to use |
+ss | 5; 12 (For NTU-60); 24 (For NTU-120) | Which split to use |
+st | r (for random) | Split type |
+phase | train; val | train(required for zsl), (once with train and once with val for gzsl) |
+ve | shift; msg3d | Select the Visual Embedding Model |
+le | w2v; bert | Select the Language Embedding Model |
+num_cycles | Integer | Number of cycles(Train for 10 cycles) |
+num_epoch_per_cycle | Integer | Number of epochs per cycle 1700 for 5 random and 1900 for others|
+latent_size | Integer | Size of the skeleton latent dimension (100 for ntu-60 and 200 for ntu-120)|
+load_epoch | Integer | The epoch to be loaded |
+load_classifier |  | Set if the pre-trained classifier is to be loaded |
+dataset |- | Path to the generated visual features |
+wdir | - | Path to the directory to store the weights in |
+mode | train;eval | train for training synse, eval to eval using a pretrained model |
+gpu | - | which gpu device number to train on |
+
+For example, if you want to train PURLS for zsl under a experiment split of 55/5 split on NTU 60, you can use the following command: 
+    <code> python main.py -c configs/adaptive_purls_5r_clip_gb.yml </code>
 <!--To train a new ST-GCN model, run
 
 ```
