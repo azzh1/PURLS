@@ -3,11 +3,15 @@
 ## Introduction
 This repository is prepared to provide the code resource for the paper:
 
-**Part-aware Unified Representation of Language and Skeleton for Zero-shot Action Recognition** Anqi Zhu, Qiuhong Ke, Mingming Gong, James Bailey.
+[**Part-aware Unified Representation of Language and Skeleton for Zero-shot Action Recognition**]() by Anqi Zhu, Qiuhong Ke, Mingming Gong, James Bailey.
 
 <div align="center">
     <img src="imgs/model_arc.png">
 </div>
+
+## Latest Updates:
+* Uploaded the main model architecture and its relevant package functions. Please visit [model/purls.py](https://github.com/azzh1/PURLS/tree/main/models/purls.py). (19/06/2024) 
+* Released pre-print version on arXiv. Available on 21/06/2024. (19/06/2024) 
 
 ## TODOs:
 * docs for
@@ -190,7 +194,7 @@ python main.py recognition -c config/st_gcn/<dataset>/test.yaml --weights <path 
 ``` -->
 
 ## Contact
-For any question, feel free to create a new issue or contact
+For any question, feel free to create a new issue or contact.
 ```
 Qiuhone Ke     : qiuhong.ke@monash.edu
 Anqi Zhu : azzh1@student.unimelb.edu.au
