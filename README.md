@@ -10,7 +10,7 @@ This repository is prepared to provide the code resource for the paper:
 </div>
 
 ## Latest Updates:
-* Uploaded the main model architecture and its relevant package functions. Please visit [model/purls.py](https://github.com/azzh1/PURLS/tree/main/models/purls.py). (19/06/2024) 
+* Uploaded the main model architecture and its relevant package functions. Please visit [model/purls.py](https://github.com/azzh1/PURLS/blob/main/model/purls.py). (19/06/2024) 
 * Released pre-print version on arXiv. Available on 21/06/2024. (19/06/2024) 
 
 ## TODOs:
@@ -21,7 +21,7 @@ This repository is prepared to provide the code resource for the paper:
   * Testing Pre-trained Models
   * Training
   * Citation
-* codes for
+* codes fo\r
   * basic organization and transplantation from implemented codes
   * pre-trained model data
   * data preprocess
