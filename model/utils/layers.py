@@ -1,4 +1,5 @@
 from model.utils.prompt_tools import SkelMaPLe
+import torch.distributed as dist
 import torch.nn as nn
 
 class HiddenLayer(nn.Module):
@@ -15,3 +16,14 @@ class HiddenLayer(nn.Module):
     def forward(self, x):
         return self.hidden_layers(x)
 
+def is_dist_avail_and_initialized():
+    if not dist.is_available():
+        return False
+    if not dist.is_initialized():
+        return False
+    return True
+
+def get_rank():
+    if not is_dist_avail_and_initialized():
+        return 0
+    return dist.get_rank()

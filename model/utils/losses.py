@@ -1,14 +1,17 @@
 import torch
 import torch.nn.functional as F
+import numpy as np
+import torch.nn as nn
 
+'''
+ * Copyright (c) 2023, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
+ * By Le Xue
+'''
 def contrastive_loss(m_skel, m_txt, m_img, tmp, target, reduction='mean'):
-    '''
-    * Copyright (c) 2023, salesforce.com, inc.
-    * All rights reserved.
-    * SPDX-License-Identifier: BSD-3-Clause
-    * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
-    * By Le Xue
-    '''
+    # print("================")
     
     logits_per_skel_txt = tmp * (m_skel @ m_txt.t())
     logits_per_txt_skel = tmp * (m_txt @ m_skel.t())
