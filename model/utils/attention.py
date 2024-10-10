@@ -26,9 +26,11 @@ class MultiHeadSelfAttention(nn.Module):
         k = self.linear_k(x).reshape(batch, p, self.num_heads, self.dim_k).transpose(1, 2)  # (batch, self.num_heads, p, self.dim_k)
         v = x
         
+        # score = torch.rand((batch, n, p), dtype=torch.float).to(x.device)
         score = (torch.matmul(q, k.transpose(2, 3)) * self._norm_fact).mean(1)  # batch, nh, n, n -> batch, n, n
         score = torch.softmax(score, dim=-1)  # batch, 7, 75 (* batch, 75, 256)
         att = torch.matmul(score, v)  # batch, 7, 256
+        # att = v.mean(1).unsqueeze(1).repeat(1, 7, 1)
         
         if resnet:
             att += x.mean(dim=1).unsqueeze(1).repeat(1, att.shape[1], 1)
