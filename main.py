@@ -137,32 +137,6 @@ def main(args):
         acclen = np.sum(np.array(model.test_acc[i][1]))
         model.test_acc[i] = acc / acclen
     print(model.test_acc)
-<<<<<<< Updated upstream
-=======
-    print("======================================================================")
-    # unseen test - gzsl
-    # model.gzsl()
-    # trainer.test(model, data_module.gzsl_test_dataloader(), 
-    #             ckpt_path = '{}/best.ckpt'.format(hparams.work_dir))
-    # seen_total = 0
-    # seen_len = 0
-    # unseen_total = 0
-    # unseen_len = 0
-    # for i in model.test_acc:
-    #     acc = np.sum(np.array(model.test_acc[i][0]))
-    #     acclen = np.sum(np.array(model.test_acc[i][1]))
-    #     model.test_acc[i] = acc / acclen
-    #     if i in hparams.unseen_inds:
-    #         unseen_total += acc
-    #         unseen_len += acclen
-    #     else:
-    #         seen_total += acc
-    #         seen_len += acclen
-    # print(model.test_acc)
-    # print("Seen: {}  |  Unseen: {}  |  Hybrid: {}".format(seen_total / seen_len, 
-    #                                                       unseen_total / unseen_len, 
-    #                                                       2 / (1/(seen_total / seen_len)+1/(unseen_total / unseen_len))))
->>>>>>> Stashed changes
 
 if __name__ == '__main__':
     parser = ArgumentParser()
@@ -244,9 +218,6 @@ if __name__ == '__main__':
         """
         do parameter tests
         """
-<<<<<<< Updated upstream
-        pass
-=======
         # skel prompt length
         if args.model_name == 'purls':
             orig_work_dir = copy.deepcopy(args.work_dir)
@@ -258,4 +229,3 @@ if __name__ == '__main__':
                 main(args)
                 args.work_dir = orig_work_dir
                 # 8525 - 67
->>>>>>> Stashed changes
