@@ -6,7 +6,11 @@ gpus: 1
 num_epoch: 100
 
 # Debug
+<<<<<<< Updated upstream
 seed: 5
+=======
+seed: 25
+>>>>>>> Stashed changes
 eval_interval: 1
 
 # Data
